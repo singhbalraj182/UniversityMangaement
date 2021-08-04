@@ -1,0 +1,45 @@
+﻿@page
+@model UniversityMangaement.Pages.Services.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Service</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Service.Id" />
+            <div class="form-group">
+                <label asp-for="Service.DepartmentId" class="control-label"></label>
+                <select asp-for="Service.DepartmentId" class="form-control" asp-items="ViewBag.DepartmentId"></select>
+                <span asp-validation-for="Service.DepartmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Service.LecturerId" class="control-label"></label>
+                <select asp-for="Service.LecturerId" class="form-control" asp-items="ViewBag.LecturerId"></select>
+                <span asp-validation-for="Service.LecturerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Service.ModuleId" class="control-label"></label>
+                <select asp-for="Service.ModuleId" class="form-control" asp-items="ViewBag.ModuleId"></select>
+                <span asp-validation-for="Service.ModuleId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
